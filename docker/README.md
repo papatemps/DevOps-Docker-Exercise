@@ -58,13 +58,13 @@ What commands will give you the ip addresses of the containers in the described 
 
 As we know, Docker images are either based on other images or the `scratch` image that is empty.
 
-As an example, the `postgres` image in latest version https://hub.docker.com/_/postgres is based on `debian` image with the `buster-slim` tag, which again is based on `scratch`.
+As an example, the `postgres` image in latest version <https://hub.docker.com/_/postgres> is based on `debian` image with the `buster-slim` tag, which again is based on `scratch`.
 
 In that way, postgres is leveraging the work done by Debian.
 
 **Tasks**
 
 Make the same traversal of docker images for the `nextcloud` image with tag `19` found here:
-https://hub.docker.com/_/nextcloud
+<https://hub.docker.com/_/nextcloud>
 
 Write in the hand-in the chain of images that nextcloud is dependent on.
