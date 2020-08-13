@@ -1,2 +1,2 @@
 # DevOps-Docker-Exercise
-A repo for our DevOps hand in.
+A repo for the DevOps hand in.
