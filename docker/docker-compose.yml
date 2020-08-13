@@ -1,10 +1,36 @@
 version: '3'
 services:
-  wordpress:
 # define the wordpress container
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: bigadmin
+      WORDPRESS_DB_PASSWORD: bigpassword
+      WORDPRESS_DB_NAME: bigdb
+    networks: 
+      - network1
+# define the mysql container
   db:
-# define the myswl container
-  loadbalancer-nginx:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: 'bigdb'
+      MYSQL_USER: 'bigadmin'
+      MYSQL_PASSWORD: 'bigpassword'
+      MYSQL_ROOT_PASSWORD: 'bigbigpassword'
 # define the nginx-container
-networks:
+  loadbalancer-nginx:
+    depends_on:
+      - wordpress
+      - db
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+
 # define the networks
+networks:
+  network1:
