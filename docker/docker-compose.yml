@@ -20,6 +20,8 @@ services:
       MYSQL_USER: 'bigadmin'
       MYSQL_PASSWORD: 'bigpassword'
       MYSQL_ROOT_PASSWORD: 'bigbigpassword'
+    networks:
+      - network1
 # define the nginx-container
   loadbalancer-nginx:
     depends_on:
